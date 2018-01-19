@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: prmviewer, Configuration: Debug x86 ------
+1>vbc : warning BC40057: Namespace or type specified in the project-level Imports 'System.Xml.Linq' doesn't contain any public member or cannot be found. Make sure the namespace or the type is defined and contains at least one public member. Make sure the imported element name doesn't use any aliases.
+1>C:\Users\Kallel\Documents\GitHub\nvolt\Model.vb(175,20): warning BC42104: Variable 'tex' is used before it has been assigned a value. A null reference exception could result at runtime.
+1>  prmviewer -> C:\Users\Kallel\Documents\GitHub\nvolt\bin\x86\Debug\nVolt.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
