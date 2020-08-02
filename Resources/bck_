@@ -146,142 +146,121 @@ Module level_render
 
             For p = 0 To meshCount - 1
 
-                Dim Vx As MeshBuffer
 
                 Dim quads = 0
+                Dim Vx As MeshBuffer
                 Dim vx3d As New Vertex3D()
                 Dim polys() = mMesh(p).polyl 'clone polys (less code will be used)
                 Dim vexs() = mMesh(p).vexl   'clone vertex(s) ( same reason)
                 Dim j As Long
 
-
-                Dim Texbuckets(26) As List(Of Integer)
-                Dim TexbucketsVx(26) As List(Of Integer)
-
-
                 For i = 0 To mMesh(p).polynum
-                    If Texbuckets(polys(i).tpage) Is Nothing Then
-                        Texbuckets(polys(i).tpage) = New List(Of Integer)
-                        TexbucketsVx(polys(i).tpage) = New List(Of Integer)
-                    End If
 
-                    Texbuckets(polys(i).tpage).Add(i)
-                Next i
-
-                For k = 0 To 26
-                    If Texbuckets(k) Is Nothing Then Continue For
 
                     'ok, new vx list...
                     '   Dim newVxList() As Vertex3D
                     '  Dim maxNewVx As Long
 
 
+                    Vx = New MeshBuffer(VertexType.Standard)
+                    j = -1
+
+
+                    'Vx.Material = Directory & DirectoryName & 
+
+                    'If polys(i).tpage <> old Then Debug.Print(polys(i).tpage & " replaces " & old)
+
+                    Vx.Material.Texture1 = Material(polys(i).tpage).Texture1
+                    old = polys(i).tpage
 
 
 
-                    For kk = 0 To Texbuckets(k).Count - 1
-                        j = 0
-                        Vx = New MeshBuffer(VertexType.Standard)
-
-                        Dim i = Texbuckets(k)(kk)
-
-
-                        '   Next
-                        Vx.Material.Texture1 = Material(k).Texture1
-                        '  old = polys(i).tpage
-
-                        Vx.SetVertex(polys(i).vi0, New Vertex3D(vexs(polys(i).vi0).Position,
-                                                            vexs(polys(i).vi0).normal,
-                                                            ColorsToRGB(polys(i).c0),
+                    Vx.SetVertex(System.Threading.Interlocked.Increment(j), New Vertex3D(vexs(polys(i).vi0).Position, _
+                                                            vexs(polys(i).vi0).normal, _
+                                                            ColorsToRGB(polys(i).c0), _
                                                             New Vector2D(polys(i).u0, polys(i).v0)))
 
-                        Vx.SetVertex(polys(i).vi1, New Vertex3D(vexs(polys(i).vi1).Position,
-                                                                 vexs(polys(i).vi1).normal,
-                                                                 ColorsToRGB(polys(i).c1),
+                    Vx.SetVertex(System.Threading.Interlocked.Increment(j), New Vertex3D(vexs(polys(i).vi1).Position, _
+                                                                 vexs(polys(i).vi1).normal, _
+                                                                 ColorsToRGB(polys(i).c1), _
                                                                  New Vector2D(polys(i).u1, polys(i).v1)))
 
-                        Vx.SetVertex(polys(i).vi2, New Vertex3D(vexs(polys(i).vi2).Position,
-                                                           vexs(polys(i).vi2).normal,
-                                                           ColorsToRGB(polys(i).c2),
+                    Vx.SetVertex(System.Threading.Interlocked.Increment(j), New Vertex3D(vexs(polys(i).vi2).Position, _
+                                                           vexs(polys(i).vi2).normal, _
+                                                           ColorsToRGB(polys(i).c2), _
                                                            New Vector2D(polys(i).u2, polys(i).v2)))
 
-                        Vx.SetIndex(j, polys(i).vi0)
-                        Vx.SetIndex(j + 1, polys(i).vi1)
-                        Vx.SetIndex(j + 2, polys(i).vi2)
-                        j += 3
 
-                        If polys(i).type Mod 2 = 1 Then
-                            'it's a quad!!! hey don't panic, I'll split it!
+                    If polys(i).type Mod 2 = 1 Then
+                        'it's a quad!!! hey don't panic, I'll split it!
 
-                            Vx.SetVertex(polys(i).vi2, New Vertex3D(vexs(polys(i).vi2).Position,
-                                                        vexs(polys(i).vi2).normal,
-                                                        ColorsToRGB(polys(i).c2),
+                        Vx.SetVertex(System.Threading.Interlocked.Increment(j), New Vertex3D(vexs(polys(i).vi2).Position, _
+                                                        vexs(polys(i).vi2).normal, _
+                                                        ColorsToRGB(polys(i).c2), _
                                                         New Vector2D(polys(i).u2, polys(i).v2)))
 
 
-
-                            Vx.SetVertex(polys(i).vi0, New Vertex3D(vexs(polys(i).vi0).Position,
-                                                         vexs(polys(i).vi0).normal,
-                                                         ColorsToRGB(polys(i).c0),
+                        Vx.SetVertex(System.Threading.Interlocked.Increment(j), New Vertex3D(vexs(polys(i).vi0).Position, _
+                                                         vexs(polys(i).vi0).normal, _
+                                                         ColorsToRGB(polys(i).c0), _
                                                          New Vector2D(polys(i).u0, polys(i).v0)))
 
 
 
-                            Vx.SetVertex(polys(i).vi3, New Vertex3D(vexs(polys(i).vi3).Position,
-                                           vexs(polys(i).vi3).normal,
-                                              ColorsToRGB(polys(i).c3),
+                        Vx.SetVertex(System.Threading.Interlocked.Increment(j), New Vertex3D(vexs(polys(i).vi3).Position, _
+                                           vexs(polys(i).vi3).normal, _
+                                              ColorsToRGB(polys(i).c3), _
                                              New Vector2D(polys(i).u3, polys(i).v3)))
 
-                            Vx.SetIndex(j, polys(i).vi2)
-                            Vx.SetIndex(j + 1, polys(i).vi0)
-                            Vx.SetIndex(j + 2, polys(i).vi3)
-                            j += 3
-                        End If
+                    End If
 
 
-
-
-
-                        Dim mesh As New Mesh
-                        '  Vx.Material.NormalizeNormals = True
-
-                        mesh.AddMeshBuffer(Vx)
-
-                        Dim scnNode As New SceneNode
-
-                        scnNode = ScnMgr.AddMeshSceneNode(mesh, ScnMgr.RootSceneNode, -1)
-
-
-                        scnNode.SetMaterialFlag(MaterialFlag.BackFaceCulling, False)
-                        scnNode.AutomaticCulling = CullingType.Off
-
-
-                        '  Dim texta As Texture = VideoDriver.GetTexture("C:\Games\pc\revolt\revolt\gfx\envstill.bmp")
-
-                        scnNode.SetMaterialTexture(0, Material(polys(i).tpage).Texture1)
-                        '  scnNode.SetMaterialTexture(1, texta)
-
-
-                        scnNode.SetMaterialType(MaterialType.TransparentAlphaChannel)
-                        'cnNode.GetMaterial(1).Texture1 = texta
-
-                        '  scnNode.GetMaterial(0).Texture1 = Material.Texture1
-                        ' D
-                        '
-
-                        '       scnNode.SetMaterialTexture(2, texta)
-
-
-                        scnNode.SetMaterialFlag(MaterialFlag.Lighting, False)
-
-                        '  scnNode.SetMaterialType(MaterialType.TransparentAlphaChannelRef)
-                        '   scnNode(k).SetMaterialFlag(MaterialFlag.AnisotropicFilter, True)
-                        'scnNode(k).SetMaterialType(MaterialType.TransparentAddColor)
-                        scnNode.SetMaterialFlag(MaterialFlag.BilinearFilter, True)
-                        ' scnNode(k).SetMaterialFlag(MaterialFlag.TrilinearFilter, True)
-
+                    For v = 0 To Vx.VertexCount
+                        ' For n = 0 To 65535
+                        Vx.SetIndex(v, v)
+                        'Next
                     Next
+
+                    Dim mesh As New Mesh
+                    Vx.Material.NormalizeNormals = True
+
+                    mesh.AddMeshBuffer(Vx)
+
+                    Dim scnNode As New SceneNode
+
+                    scnNode = ScnMgr.AddMeshSceneNode(mesh, ScnMgr.RootSceneNode, -1)
+
+
+                    scnNode.SetMaterialFlag(MaterialFlag.BackFaceCulling, False)
+                    scnNode.AutomaticCulling = CullingType.Off
+
+
+                    '  Dim texta As Texture = VideoDriver.GetTexture("C:\Games\pc\revolt\revolt\gfx\envstill.bmp")
+
+                    scnNode.SetMaterialTexture(0, Material(polys(i).tpage).Texture1)
+                    '  scnNode.SetMaterialTexture(1, texta)
+          
+
+                    scnNode.SetMaterialType(MaterialType.TransparentAlphaChannel)
+                    'cnNode.GetMaterial(1).Texture1 = texta
+
+                    '  scnNode.GetMaterial(0).Texture1 = Material.Texture1
+                    ' D
+                    '
+
+                    '       scnNode.SetMaterialTexture(2, texta)
+
+
+                    scnNode.SetMaterialFlag(MaterialFlag.Lighting, False)
+
+                    '  scnNode.SetMaterialType(MaterialType.TransparentAlphaChannelRef)
+                    '   scnNode(k).SetMaterialFlag(MaterialFlag.AnisotropicFilter, True)
+                    'scnNode(k).SetMaterialType(MaterialType.TransparentAddColor)
+                    scnNode.SetMaterialFlag(MaterialFlag.BilinearFilter, True)
+                    ' scnNode(k).SetMaterialFlag(MaterialFlag.TrilinearFilter, True)
+
                 Next
+
 
 
 

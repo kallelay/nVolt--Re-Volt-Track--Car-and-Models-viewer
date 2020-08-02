@@ -22,15 +22,15 @@ Partial Class mainform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
-        Me.Button2 = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -44,10 +44,9 @@ Partial Class mainform
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(545, 46)
+        Me.GroupBox1.Size = New System.Drawing.Size(986, 46)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Visible = False
         '
         'Label1
         '
@@ -72,6 +71,7 @@ Partial Class mainform
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Enabled = False
         Me.CheckBox1.Location = New System.Drawing.Point(102, 12)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(160, 17)
@@ -81,6 +81,7 @@ Partial Class mainform
         '
         'Button2
         '
+        Me.Button2.Enabled = False
         Me.Button2.FlatAppearance.BorderSize = 2
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(31, 12)
@@ -94,7 +95,7 @@ Partial Class mainform
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Location = New System.Drawing.Point(418, 14)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(84, 26)
+        Me.Button1.Size = New System.Drawing.Size(525, 26)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "pick a prm"
         Me.Button1.UseVisualStyleBackColor = True
@@ -110,7 +111,7 @@ Partial Class mainform
         Me.Panel1.Margin = New System.Windows.Forms.Padding(20, 20, 0, 20)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Padding = New System.Windows.Forms.Padding(20)
-        Me.Panel1.Size = New System.Drawing.Size(545, 317)
+        Me.Panel1.Size = New System.Drawing.Size(986, 557)
         Me.Panel1.TabIndex = 0
         '
         'OpenFileDialog1
@@ -122,7 +123,7 @@ Partial Class mainform
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(545, 363)
+        Me.ClientSize = New System.Drawing.Size(986, 603)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -130,7 +131,7 @@ Partial Class mainform
         Me.MinimizeBox = False
         Me.Name = "mainform"
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "nVolt"
         Me.TopMost = True
         Me.GroupBox1.ResumeLayout(False)

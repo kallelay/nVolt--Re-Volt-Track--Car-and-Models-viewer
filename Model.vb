@@ -197,44 +197,48 @@ Module Level_Model
 
 
 
+
             For i = 0 To MyModel.polynum
+
+
+
                 'Vx.Material = Directory & DirectoryName & 
 
-                Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi0).Position, _
-                                                        vexs(polys(i).vi0).normal, _
-                                                        ColorsToRGB(polys(i).c0), _
+                Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi0).Position,
+                                                        vexs(polys(i).vi0).normal,
+                                                        ColorsToRGB(polys(i).c0),
                                                         New Vector2D(polys(i).u0, polys(i).v0)))
 
-                Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi1).Position, _
-                                                             vexs(polys(i).vi1).normal, _
-                                                             ColorsToRGB(polys(i).c1), _
+                Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi1).Position,
+                                                             vexs(polys(i).vi1).normal,
+                                                             ColorsToRGB(polys(i).c1),
                                                              New Vector2D(polys(i).u1, polys(i).v1)))
 
-                Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi2).Position, _
-                                                       vexs(polys(i).vi2).normal, _
-                                                       ColorsToRGB(polys(i).c2), _
+                Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi2).Position,
+                                                       vexs(polys(i).vi2).normal,
+                                                       ColorsToRGB(polys(i).c2),
                                                        New Vector2D(polys(i).u2, polys(i).v2)))
 
 
                 If polys(i).type Mod 2 = 1 Then
                     'it's a quad!!! hey don't panic, I'll split it!
 
-                    Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi2).Position, _
-                                                    vexs(polys(i).vi2).normal, _
-                                                    ColorsToRGB(polys(i).c2), _
+                    Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi2).Position,
+                                                    vexs(polys(i).vi2).normal,
+                                                    ColorsToRGB(polys(i).c2),
                                                     New Vector2D(polys(i).u2, polys(i).v2)))
 
 
-                    Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi0).Position, _
-                                                     vexs(polys(i).vi0).normal, _
-                                                     ColorsToRGB(polys(i).c0), _
+                    Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi0).Position,
+                                                     vexs(polys(i).vi0).normal,
+                                                     ColorsToRGB(polys(i).c0),
                                                      New Vector2D(polys(i).u0, polys(i).v0)))
 
 
 
-                    Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi3).Position, _
-                                       vexs(polys(i).vi3).normal, _
-                                          ColorsToRGB(polys(i).c3), _
+                    Vx(polys(i).Tpage).SetVertex(System.Threading.Interlocked.Increment(j(polys(i).Tpage)), New Vertex3D(vexs(polys(i).vi3).Position,
+                                       vexs(polys(i).vi3).normal,
+                                          ColorsToRGB(polys(i).c3),
                                          New Vector2D(polys(i).u3, polys(i).v3)))
 
                 End If

@@ -12,7 +12,7 @@ Module Render
 
     Public cam As CameraSceneNode
 
-    Dim Width = 800, Height = 600
+    Dim Width = 1024, Height = 800
     Dim DvType As DriverType = DriverType.Direct3D9
     Dim bits = 32
     Dim FullScreen As Boolean = False
@@ -55,11 +55,11 @@ Module Render
         'Try
         'Device.Run()
 
-        On Error Resume Next
+
         Do Until Device.Run = False
             Device.WindowCaption = "nVolt ~ fps:" & VideoDriver.FPS          'fps?
             mainform.Label1.Text = String.Format("Cam: {0}   {1}  {2}. Press ESC to exit FPS mode", cam.Position.X / Zoom, cam.Position.Y / Zoom, cam.Position.Z / Zoom)
-            '    mainform.Text = "nVolt ~ fps:" & VideoDriver.FPS          'fps?
+            mainform.Text = "nVolt ~ fps:" & VideoDriver.FPS          'fps?
             VideoDriver.BeginScene(True, True, BackColor)    'clear buffer
             'VideoDriver.BeginScene(True, True, Color.Black)    'clear buffer
             ScnMgr.DrawAll()

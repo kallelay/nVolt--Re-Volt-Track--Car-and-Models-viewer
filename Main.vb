@@ -6,6 +6,7 @@ Module Main
     Public mPRM As PRM
     Public WorldFile As WorldFile
     Sub Main()
+        mainform.Show()
         'Init graphics
         Render.Init()
         '  ' Dim prm = New PRM("C:\Games\pc\revolt\revolt\levels\garden\elephant.prm")
@@ -17,7 +18,6 @@ Module Main
 
         Start()
 
-        mainform.Show()
         'RenderOneprm(New PRM("C:\Games\pc\revolt\revolt\levels\garden\elephant.prm"))
 
         'OK, graphics now?
