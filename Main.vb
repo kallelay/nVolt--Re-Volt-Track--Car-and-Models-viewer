@@ -17,6 +17,9 @@ Module Main
 
 
         Start()
+        For Each item In WorldFile.texAnimHandlerList
+            item.Play()
+        Next
 
         'RenderOneprm(New PRM("C:\Games\pc\revolt\revolt\levels\garden\elephant.prm"))
 

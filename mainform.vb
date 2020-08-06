@@ -48,8 +48,8 @@ Public Class mainform
     End Sub
 
     Private Sub mainform_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
-        Main.Main()
         Me.ActiveControl = Panel1
+        Main.Main()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click

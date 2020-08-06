@@ -45,8 +45,9 @@ Partial Class mainform
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(986, 46)
-        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Visible = False
         '
         'Label1
         '

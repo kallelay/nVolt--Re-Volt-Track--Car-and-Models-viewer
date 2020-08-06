@@ -101,11 +101,13 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.vb" />
-    <Compile Include="car_class.vb" />
-    <Compile Include="Instances.vb" />
-    <Compile Include="level render.vb" />
-    <Compile Include="Level.vb" />
+    <Compile Include="car\Car.vb" />
+    <Compile Include="car\car_class.vb" />
+    <Compile Include="track\Frame.vb" />
+    <Compile Include="track\Funnyball.vb" />
+    <Compile Include="track\Instances.vb" />
+    <Compile Include="track\level render.vb" />
+    <Compile Include="loaders\Level.vb" />
     <Compile Include="mainform.Designer.vb">
       <DependentUpon>mainform.vb</DependentUpon>
     </Compile>
@@ -113,7 +115,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Math_f.vb" />
-    <Compile Include="Model.vb" />
+    <Compile Include="loaders\Model.vb" />
     <Compile Include="Main.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -130,9 +132,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Render.vb" />
+    <Compile Include="gfx\Render.vb" />
+    <Compile Include="track\TexAnimHandler.vb" />
     <None Include="Resources\bck_" />
-    <Compile Include="singletons.vb" />
+    <Compile Include="car\singletons.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="mainform.resx">

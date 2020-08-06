@@ -7,6 +7,7 @@ Module Render
     Public Device As IrrlichtDevice
     Public VideoDriver As VideoDriver
     Public ScnMgr As SceneManager
+    Public tScnNode As SceneNode
     Public guiEnv As GUIEnvironment
     Public mEvent As IrrlichtNETCP.Event
 
@@ -25,6 +26,9 @@ Module Render
         Device = New IrrlichtDevice(DvType, New Dimension2D(Width, Height), bits, FullScreen, Stencil, Vsync, AntiAlias, mainform.Panel1.Handle)
         VideoDriver = Device.VideoDriver
         ScnMgr = Device.SceneManager
+
+        tScnNode = New SceneNode() ' ScnMgr.AddCameraSceneNode(Nothing)
+
         Device.CursorControl.Visible = True
         Device.Resizeable = True
         AddHandler Device.OnEvent, AddressOf onEvent
@@ -62,6 +66,9 @@ Module Render
             mainform.Text = "nVolt ~ fps:" & VideoDriver.FPS          'fps?
             VideoDriver.BeginScene(True, True, BackColor)    'clear buffer
             'VideoDriver.BeginScene(True, True, Color.Black)    'clear buffer
+            '  ScnMgr.RegisterNodeForRendering(ScnMgr.RootSceneNode, SceneNodeRenderPass.Solid)
+
+
             ScnMgr.DrawAll()
             guiEnv.DrawAll()
 

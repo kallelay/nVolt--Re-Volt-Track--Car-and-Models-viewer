@@ -5,6 +5,8 @@ Imports IrrlichtNETCP
 ' //        File structure         //
 ' ///////////////////////////////////
 ' // Last modification August'8th
+' /// Hey KDL-myself from 2010.... which August'8th are you talking about,
+' //// Yours... KDL-kay from 2020....
 ' // By theKDL
 
 
