@@ -343,10 +343,12 @@ neg:
 
                             ' texAnimHandlerList(texAnimHandlerList.Count - 1).animation = AllFrames(curanimidx(k))
                             texAnimHandlerList(texAnimHandlerList.Count - 1).animation = AllFrames(polys(i).tpage)
-                            texAnimHandlerList(texAnimHandlerList.Count - 1).animMesh = Nothing
+                            'texAnimHandlerList(texAnimHandlerList.Count - 1).animMesh = Nothing
                             texAnimHandlerList(texAnimHandlerList.Count - 1).firstVxIdx = 0
                             texAnimHandlerList(texAnimHandlerList.Count - 1).isQuad = (polys(i).type Mod 2) = 1
-                            texAnimHandlerList(texAnimHandlerList.Count - 1).MeshBufferIdx = VxAnim.Count
+                            'texAnimHandlerList(texAnimHandlerList.Count - 1).MeshBufferIdx = VxAnim.Count
+                            texAnimHandlerList(texAnimHandlerList.Count - 1).MeshBuffer = VxAnim(VxAnim.Count - 1)
+                            '  txanimhan
 
                             vx.SetVertex(0, New Vertex3D(vexs(polys(i).vi0).Position,
                                                            vexs(polys(i).vi0).normal,
@@ -481,7 +483,7 @@ endit:
                     'For each animation add this current mesh
                     If VxAnim.Count > 0 Then
                         For a = texAnimHandlerList.Count - 1 To 0 Step -1
-                            If texAnimHandlerList(a).animMesh Is Nothing Then texAnimHandlerList(a).animMesh = mesh
+                            'If texAnimHandlerList(a).MeshBuffer Is Nothing Then texAnimHandlerList(a).animMesh = mesh
                         Next
                     End If
 

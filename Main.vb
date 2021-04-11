@@ -17,9 +17,11 @@ Module Main
 
 
         Start()
-        For Each item In WorldFile.texAnimHandlerList
-            item.Play()
-        Next
+        If WorldFile IsNot Nothing Then
+            For Each item In WorldFile.texAnimHandlerList
+                item.Play()
+            Next
+        End If
 
         'RenderOneprm(New PRM("C:\Games\pc\revolt\revolt\levels\garden\elephant.prm"))
 
@@ -40,18 +42,18 @@ Module Main
             End If
         End If
 
-        If InStr(cmd, ".prm", CompareMethod.Text) > 0 Then
+        If Strings.Right(cmd, 4).ToLower = ".prm" Or Strings.Right(cmd, 2).ToLower = ".m" Then
             mPRM = New PRM(cmd)
             mPRM.Render()
 
-        ElseIf InStr(cmd, ".w", CompareMethod.Text) > 0 Then
+        ElseIf Strings.Right(cmd, 2).ToLower = ".w" Then
 
-          
+
             WorldFile = New WorldFile(cmd)
             WorldFile.Render()
 
 
-        ElseIf InStr(cmd, ".inf", CompareMethod.Text) > 0 Then
+        ElseIf Strings.Right(cmd, 4).ToLower = ".inf" Then
 
 
 
